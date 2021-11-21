@@ -242,6 +242,189 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://vinecoder.github.io/2021/11/19/c-%E5%9F%BA%E7%A1%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vine's Life">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/11/19/c-%E5%9F%BA%E7%A1%80/" itemprop="url">基础语法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-11-19T19:01:50+08:00">
+                2021-11-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+		  
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>下面记录基础部分常见易出错的地方。</p>
+<h2 id="字符串类型"><a class="markdownIt-Anchor" href="#字符串类型"></a> 字符串类型</h2>
+<p>c语言风格：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> strs[] = <span class="string">&quot;abcd&quot;</span>;</span><br></pre></td></tr></table></figure>
+<p>c++风格：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line">string str = <span class="string">&quot;abcd&quot;</span></span><br></pre></td></tr></table></figure>
+<h2 id="三目运算符"><a class="markdownIt-Anchor" href="#三目运算符"></a> 三目运算符</h2>
+<p>基本形式为：表达式1？表达式2：表达式3，该形式返回的结果是表达式2/3。如：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a=<span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> b=<span class="number">20</span>;</span><br><span class="line">(a&gt;b?a:b)=<span class="number">30</span> <span class="comment">//可以对三目运算符返回的结果进行幅值</span></span><br><span class="line"><span class="keyword">int</span> c = a&gt;b?a:b <span class="comment">//也可以将三目运算符返回的结果幅值给其它变量</span></span><br></pre></td></tr></table></figure>
+<h2 id="switch语句"><a class="markdownIt-Anchor" href="#switch语句"></a> switch语句</h2>
+<p>基本语法：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">swtich</span> (表达式)&#123;</span><br><span class="line">	<span class="keyword">case</span> 情况<span class="number">1</span>：</span><br><span class="line">		操作<span class="number">1</span>；</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	...</span><br><span class="line">	...</span><br><span class="line">	<span class="keyword">default</span>:</span><br><span class="line">		操作<span class="number">0</span>；</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>注意，每一种case的最后需要加break，否则会依次执行该case后的所有语句。</strong></p>
+<h2 id="指针"><a class="markdownIt-Anchor" href="#指针"></a> 指针</h2>
+<h4 id="空指针"><a class="markdownIt-Anchor" href="#空指针"></a> 空指针</h4>
+<p>空指针用于给指针变量初始化，但不可被访问(地址为0-255的内存空间为系统占用)。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *p = <span class="literal">NULL</span>;</span><br><span class="line">*p = <span class="number">100</span>; <span class="comment">//错误</span></span><br></pre></td></tr></table></figure>
+<h4 id="野指针"><a class="markdownIt-Anchor" href="#野指针"></a> 野指针</h4>
+<p>野指针表示指针指向了非法的内存空间（未申请内存空间，也不可访问）。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *p = (<span class="keyword">int</span> *)<span class="number">0x1100</span>; </span><br></pre></td></tr></table></figure>
+<h4 id="const修饰指针"><a class="markdownIt-Anchor" href="#const修饰指针"></a> const修饰指针</h4>
+<ol>
+<li>const修饰指针：常量指针</li>
+</ol>
+<p>指针的指向可以修改，但指针指向的值不可以修改。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a=<span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> b=<span class="number">20</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> *p = &amp;a;</span><br><span class="line"></span><br><span class="line">p = &amp;b; <span class="comment">//合法</span></span><br><span class="line">*p= <span class="number">30</span>; <span class="comment">//不合法</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>const修饰常量：指针常量</li>
+</ol>
+<p>指针指向的值可以修改，但指针的指向不可以改。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a=<span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> b=<span class="number">20</span>;</span><br><span class="line"><span class="keyword">int</span> * <span class="keyword">const</span> p = &amp;a;</span><br><span class="line"></span><br><span class="line">p = &amp;b; <span class="comment">//不合法</span></span><br><span class="line">*p= <span class="number">30</span>; <span class="comment">//合法</span></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>const既修饰指针又修饰常量</li>
+</ol>
+<p>指针的指向和指向的值都不可以修改。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a=<span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> b=<span class="number">20</span>;</span><br><span class="line"><span class="keyword">int</span> * <span class="keyword">const</span> p = &amp;a;</span><br><span class="line"></span><br><span class="line">p = &amp;b; <span class="comment">//不合法</span></span><br><span class="line">*p= <span class="number">30</span>; <span class="comment">//不合法</span></span><br></pre></td></tr></table></figure>
+<h2 id="结构体"><a class="markdownIt-Anchor" href="#结构体"></a> 结构体</h2>
+
+          
+        
+      
+    </div>
+    
+    
+    
+	
+	<div>
+     
+    </div>
+
+	
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://vinecoder.github.io/2021/10/27/%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -999,7 +1182,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1010,7 +1193,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
